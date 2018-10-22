@@ -1,0 +1,117 @@
+///////////////////////
+//LOGO
+.logo {
+  height: 3.25rem;
+  margin-left: 3rem;
+}
+
+///////////////////////
+// SEARCH
+
+.search {
+  flex: 0 0 40%;
+
+  // Nested Flex box => Flex item is beomming Flex container
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__input {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: var(--grey-light-2);
+    border: none;
+    padding: 0.7rem 2rem;
+    border-radius: 100px;
+    width: 95%;
+    margin-right: -3.5rem;
+
+    &:focus {
+      outline: none;
+      width: 100%;
+      background-color: var(--grey-light-3);
+    }
+  }
+
+  // to center something or align something always use flexbox;
+
+  &__button {
+    border: none;
+    outline: none;
+    background-color: var(--grey-dark-1);
+
+    &:focus {
+      outline: none;
+    }
+
+    &::-webkit-input-placeholder {
+      font-weight: 100;
+      color: var(--color-grey-light-4);
+    }
+  }
+
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+    background-color: var(--grey-light-3);
+  }
+}
+
+.user-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex: 0 0 15%;
+
+  // select direct chidren
+  & > * {
+    padding: 0 2 rem;
+    cursor: pointer;
+    height: 100%;
+  }
+
+  & > *:hover {
+    background-color: var(--color-grey-light-4);
+  }
+
+  &__icon-box {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  &__icon {
+    height: 2.5rem;
+    width: 2.5rem;
+    fill: var(--grey-dark-2);
+  }
+
+  &__notification {
+    position: absolute;
+    top: -7.9px;
+    right: -5.5px;
+    background-color: var(--color-primary-dark);
+    color: #fff;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+  }
+
+  &__user-photo {
+    height: 3.75rem;
+    border-radius: 50%;
+  }
+
+  &__user-name {
+  }
+
+ 
+}
