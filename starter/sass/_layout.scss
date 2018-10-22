@@ -229,6 +229,7 @@
   line-height: 2.2rem;
   word-spacing: 0.2rem;
   padding: 3.2rem;
+
   color: var(--grey-light-4) &__borderline {
     border-top: 2px solid var(--grey-light-4);
     width: 90%;
@@ -272,6 +273,10 @@
     display: flex;
     flex-direction: column;
   }
+  &__usertext {
+    z-index: 10;
+    position: relative;
+  }
 
   &__user1_review {
     font-size: 1.4rem;
@@ -280,23 +285,29 @@
     color: var(--grey-dark-1);
     position: relative;
 
-    &::before{
+    &::before {
       content: "\201C";
       position: absolute;
-      top:-1.3rem;
+      top: 3.4rem;
+      left: -4rem;
+      color: var(--grey-light-2);
+      font-size: 20rem;
+      font-family: sans-serif;
+      z-index: 1;
+      // z-index will work only if position i
     }
   }
 
   &__review_list {
-    margin: 1.2rem;
+    margin-bottom: 2.4rem;
     background-color: #fff;
-    padding: 1.2rem;
+    padding: 3.4rem;
   }
 
   &__showall {
     cursor: pointer;
     align-self: center;
-    margin-top:2.2rem;
+    margin-top: 2.2rem;
     font-size: 1.2rem;
   }
 
@@ -321,25 +332,23 @@
     height: 5.2rem;
     width: 5.2rem;
   }
-  &__user1_name{
+  &__user1_name {
     margin-right: auto;
-    margin-left:1.2rem;
-  
+    margin-left: 1.2rem;
   }
   &__username {
     font-size: 1.2rem;
     line-height: 2.2rem;
     word-spacing: 0.2rem;
-    font-weight:400px;
+    font-weight: 400px;
   }
 
-  &__reviewdate{
+  &__reviewdate {
     color: var(--grey-dark-1);
-    font-size: 1.0rem;
+    font-size: 1rem;
     line-height: 2.2rem;
     word-spacing: 0.2rem;
-    font-weight:400px;
-
+    font-weight: 400px;
   }
 }
 
@@ -372,5 +381,75 @@
     background-color: var(--color-primary);
     -webkit-mask-image: url(../img/chevron-thin-right.svg);
     -webkit-mask-size: cover;
+  }
+}
+
+////// Call to action
+
+.cta {
+  background-color: #fff;
+  text-align: center;
+  padding: 3.4rem 0;
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    color: var(--grey-dark-1);
+    margin-bottom: 2.5rem;
+  }
+
+  &__booknow {
+    border: 2px solid orange;
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    background-image: linear-gradient(
+      to right,
+      var(--color-primary-light),
+      var(--color-primary-dark)
+    );
+
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      background-image: linear-gradient(
+        to left,
+        var(--color-primary-light),
+        var(--color-primary-dark)
+      );
+    }
+  }
+
+  &__booknow_invisible {
+    display: inline-block;
+    position: absolute;
+    padding: 2rem;
+    top: -100%;
+    height: 100%;
+    width: 100%;
+    transition: all 0.2s;
+  }
+
+  &__booknow_visible {
+    display: inline-block;
+    padding: 2rem 7.5rem;
+    transition: all 0.2s;
+  }
+
+  &:hover &__booknow_visible {
+    transform: translateY(100%);
+  }
+
+  &:hover &__booknow_invisible {
+    top: 0;
+  }
+
+  &:focus {
+    animate: pulsate 1s infinite;
   }
 }
