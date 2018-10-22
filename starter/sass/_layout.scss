@@ -4,6 +4,11 @@
   background-color: var(--color-grey-light-2);
   box-shadow: var(--shadow-dark);
   min-height: 50rem;
+  @media only screen and (max-width: $bp-largest) {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .header {
@@ -13,12 +18,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center; // centered vertically along the cross axis
+
+  @media only screen and (max-width: $bp-tiny) {
+    overflow: hidden;
+  }
 }
 
 .content {
   display: flex;
   background-color: #fff;
   //align-items: strech --> default
+  @media only screen and (max-width: $bp-largest) {
+    flex-direction: column;
+  }
 }
 
 .sidebar {
@@ -44,8 +56,17 @@
   margin-top: 3.5rem;
   color: var(--grey-light-1);
 
+  @media only screen and (max-width: $bp-largest) {
+    display: flex;
+    margin: 0;
+  }
+
   &__item {
     position: relative;
+
+    @media only screen and (max-width: $bp-largest) {
+      flex: 1;
+    }
   }
 
   &__item::before {
@@ -92,6 +113,11 @@
     z-index: 5;
     display: flex;
     align-items: center;
+    @media only screen and (max-width: $bp-small) {
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem 0.5rem;
+    }
   }
 
   &__icon {
@@ -99,6 +125,12 @@
     height: 1.75rem;
     margin-right: 2rem;
     fill: currentColor;
+    @media only screen and (max-width: $bp-small) {
+      margin-right: 0;
+      margin-bottom: 0.7rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 }
 
@@ -110,6 +142,10 @@
   color: #fff;
   text-align: center;
   padding: 2.5rem;
+
+  @media only screen and (max-width: $bp-largest) {
+    display: none;
+  }
 }
 
 //////////////
@@ -117,6 +153,10 @@
 
 .gallery {
   display: flex;
+
+  @media only screen and (max-width: $bp-smallest) {
+    flex-direction: column;
+  }
 
   // In responsive design we always want flexible images. We always have to define the width and height in percentages.
   &__photo {
@@ -136,10 +176,18 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.25rem;
+      font-weight: 300;
+    }
   }
 
   &__stars {
     margin-right: auto; // will take up only needed space
+    @media only screen and (max-width: $bp-smallest) {
+      margin-right: 6.2rem;
+    }
   }
 
   &__icon-star,
@@ -147,6 +195,10 @@
     width: 1.75rem;
     height: 1.75rem;
     fill: var(--color-primary);
+    @media only screen and (max-width: $bp-smallest) {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
   }
 
   &__icon-location {
@@ -157,6 +209,13 @@
     display: flex;
     vertical-align: center;
     font-size: 1.2rem;
+    @media only screen and (max-width: $bp-smallest) {
+      font-size: 0.8rem;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+      margin-right: 1.2rem;
+    }
   }
 
   &__rating {
@@ -169,11 +228,24 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
+
+    @media only screen and (max-width: $bp-smallest) {
+      margin-left: 0;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+      padding: 0 0.6rem;
+      margin-left: 0;
+    }
   }
 
   &__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+    }
   }
 
   &__rating-count {
@@ -230,7 +302,19 @@
   word-spacing: 0.2rem;
   padding: 3.2rem;
 
-  color: var(--grey-light-4) &__borderline {
+  @media only screen and (max-width: $bp-medium) {
+    padding: 3rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column;
+  }
+
+  @media only screen and (max-width: $bp-tiny) {
+    padding-right: 1.2rem;
+  }
+
+  &__borderline {
     border-top: 2px solid var(--grey-light-4);
     width: 90%;
     margin: 0 auto;
@@ -241,10 +325,14 @@
     height: 100%;
     box-sizing: border-box;
     margin-right: 3.2rem;
-
     background-color: #fff;
     display: flex;
     flex-direction: column;
+
+    @media only screen and (max-width: $bp-medium) {
+      padding: 2rem;
+      margin-right: 2.8rem;
+    }
   }
 
   &__about {
@@ -266,12 +354,26 @@
     width: 5.2rem;
     height: 5.2rem;
     margin-left: -2.2rem;
+    @media only screen and (max-width: $bp-largest) {
+      width: 4.2rem;
+      height: 4.2rem;
+      margin-left: -2rem;
+    }
   }
 
   &__review {
     flex: 1; // same as width: 100% grow with all the avilable space.
     display: flex;
     flex-direction: column;
+
+    @media only screen and (max-width: $bp-medium) {
+      padding: 2rem;
+      margin-right: 2.8rem;
+    }
+    @media only screen and (max-width: $bp-small) {
+      padding: 0;
+      margin-top: 2rem;
+    }
   }
   &__usertext {
     z-index: 10;
@@ -309,6 +411,10 @@
     align-self: center;
     margin-top: 2.2rem;
     font-size: 1.2rem;
+
+    @media only screen and (max-width: $bp-small) {
+      margin: 0;
+    }
   }
 
   &__review-rating {
@@ -360,6 +466,10 @@
     border-top: var(--line);
     border-bottom: var(--line);
     padding: 2.2rem;
+    @media only screen and (max-width: $bp-medium) {
+      flex-direction: column;
+      padding: 2.2rem 1.2rem;
+    }
   }
 
   &__features {
@@ -372,6 +482,10 @@
     height: 1.2rem;
     width: 1.2rem;
     margin-right: -2.7rem;
+
+    @media only screen and (max-width: $bp-medium) {
+      margin-right: -1.7rem;
+    }
 
     //Older Browser
     //background-image: url(../img/chevron-thin-right.svg);
@@ -390,6 +504,10 @@
   background-color: #fff;
   text-align: center;
   padding: 3.4rem 0;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 3rem;
+  }
 
   &__title {
     text-transform: uppercase;
